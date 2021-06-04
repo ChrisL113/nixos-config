@@ -65,7 +65,7 @@
   };
 
   # backlight manager
-  programs.light.enable = true;
+  # programs.light.enable = true;
 
   # Configure keymap in X11
   services.xserver.layout = "us";
@@ -79,7 +79,13 @@
   hardware.pulseaudio.enable = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
-  services.xserver.libinput.enable = true;
+  services.xserver = {
+    libinput = {
+      enable = true;
+      naturalScrolling = true;
+    };
+
+  };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.chris = {
@@ -99,6 +105,8 @@
     libreoffice
     nodejs
     # system
+    acpi
+    tint2
     xclip
     scrot
     fish
@@ -109,10 +117,12 @@
     pulsemixer
     neovim-nightly
     # programs
+    woeusb
     mpv
     discord
     google-chrome
     # enviroments
+    brightnessctl
     redshift
     pcmanfm
     xmobar
@@ -121,11 +131,14 @@
     neofetch
     # miscellaneous
     dmenu
-    # font
-    noto-fonts
-    noto-fonts-cjk
-    noto-fonts-emoji
-    noto-fonts-extra
+  ];
+
+  # font
+  fonts.fonts = [
+    pkgs.noto-fonts
+    pkgs.noto-fonts-cjk
+    pkgs.noto-fonts-emoji
+    pkgs.noto-fonts-extra
   ];
 
   # Allow unfree
