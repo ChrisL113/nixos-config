@@ -105,6 +105,7 @@
     libreoffice
     nodejs
     # system
+    upower
     acpi
     tint2
     xclip
@@ -122,6 +123,8 @@
     discord
     google-chrome
     # enviroments
+    dunst
+    notify-osd
     brightnessctl
     redshift
     pcmanfm
@@ -135,6 +138,7 @@
 
   # font
   fonts.fonts = [
+    pkgs.jetbrains-mono
     pkgs.noto-fonts
     pkgs.noto-fonts-cjk
     pkgs.noto-fonts-emoji
